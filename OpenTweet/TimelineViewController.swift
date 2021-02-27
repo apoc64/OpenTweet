@@ -15,6 +15,7 @@ class TimelineViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        tableView.register(UINib.init(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "TweetTableViewCell")
         tweets = TwitterService.getTweets()
         tableView.reloadData()
 	}
@@ -28,11 +29,13 @@ extension TimelineViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let tweet = tweets?[indexPath.row]
+        if let tweet = tweets?[indexPath.row],
+           let cell = tableView.dequeueReusableCell(withIdentifier: "TweetTableViewCell", for: indexPath) as? TweetTableViewCell {
+            cell.configure(tweet: tweet)
+            
+            return cell
+        }
         
-        cell.textLabel?.text = tweet?.content
-        
-        return cell
+        return UITableViewCell()
     }
 }
