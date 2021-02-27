@@ -61,12 +61,22 @@ class TweetTableViewCell: UITableViewCell {
         let formattedContent = NSMutableAttributedString()
         
         for word in words {
-            var subString: NSAttributedString
+            var subString: NSMutableAttributedString
             if word.starts(with: "@") {
-                subString = NSAttributedString(string: String(word) + " ", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+                subString = NSMutableAttributedString(string: String(word) + " ", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
             } else {
-                subString = NSAttributedString(string: String(word) + " ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)])
+                subString = NSMutableAttributedString(string: String(word) + " ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)])
             }
+            
+            let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+            let matches = detector?.matches(in: String(word), options: [], range: NSRange(location: 0, length: word.utf16.count))
+
+            if let matches = matches {
+                for match in matches {
+                    subString.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.systemBlue], range: match.range)
+                }
+            }
+            
             formattedContent.append(subString)
         }
         
