@@ -53,5 +53,6 @@ extension TimelineViewController: UITableViewDelegate {
         let thread = viewModel.thread(for: tweet)
         
         performSegue(withIdentifier: "ShowThreadSegue", sender: thread)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

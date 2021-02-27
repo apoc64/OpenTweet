@@ -25,6 +25,32 @@ class TweetTableViewCell: UITableViewCell {
         avatarImage.downloadImage(urlString: tweet.avatar, fallbackSymbol: "person.circle.fill")
     }
     
+    func performHighlightAnimation() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.backgroundColor = .cyan
+            self.authorLabel.transform = self.authorLabel.transform.scaledBy(x: 1.25, y: 0.8)
+            self.contentLabel.transform = self.contentLabel.transform.scaledBy(x: 0.8, y: 1.25)
+        }, completion: { _ in
+        UIView.animate(withDuration: 0.2, animations: {
+            self.backgroundColor = .magenta
+            self.authorLabel.transform = self.authorLabel.transform.scaledBy(x: 0.8, y: 1.25)
+            self.contentLabel.transform = self.contentLabel.transform.scaledBy(x: 1.25, y: 0.8)
+        }, completion: { _ in
+        UIView.animate(withDuration: 0.2, animations: {
+            self.backgroundColor = .yellow
+            self.authorLabel.transform = self.authorLabel.transform.scaledBy(x: 1.25, y: 0.8)
+            self.contentLabel.transform = self.contentLabel.transform.scaledBy(x: 0.8, y: 1.25)
+        }, completion: { _ in
+        UIView.animate(withDuration: 0.2, animations: {
+            self.backgroundColor = .red
+            self.authorLabel.transform = self.authorLabel.transform.scaledBy(x: 0.8, y: 1.25)
+            self.contentLabel.transform = self.contentLabel.transform.scaledBy(x: 1.25, y: 0.8)
+        }, completion: { _ in
+        UIView.animate(withDuration: 0.2, animations: {
+            self.backgroundColor = .clear
+        }, completion: nil )})})})})
+    }
+    
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!

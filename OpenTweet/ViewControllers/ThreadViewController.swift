@@ -60,3 +60,13 @@ extension ThreadViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
+extension ThreadViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? TweetTableViewCell {
+            cell.performHighlightAnimation()
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
