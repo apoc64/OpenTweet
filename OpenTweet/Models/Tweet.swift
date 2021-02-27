@@ -14,6 +14,7 @@ struct Tweet: Decodable {
     let author: String
     let content: String
     let date: Date
+    let inReplyTo: String?
 }
 
 struct TwitterResponse: Decodable {
