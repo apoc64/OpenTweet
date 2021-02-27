@@ -19,6 +19,8 @@
 		2536613825EA9AFF00DB49B6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536613725EA9AFF00DB49B6 /* Tweet.swift */; };
 		2536613F25EAA0D700DB49B6 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536613D25EAA0D700DB49B6 /* TweetTableViewCell.swift */; };
 		2536614025EAA0D700DB49B6 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2536613E25EAA0D700DB49B6 /* TweetTableViewCell.xib */; };
+		2536614925EAABAF00DB49B6 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536614825EAABAF00DB49B6 /* UIImageView+Extension.swift */; };
+		2536615125EAAFD600DB49B6 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536615025EAAFD600DB49B6 /* DateFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		2536613725EA9AFF00DB49B6 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		2536613D25EAA0D700DB49B6 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		2536613E25EAA0D700DB49B6 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
+		2536614825EAABAF00DB49B6 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		2536615025EAAFD600DB49B6 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		009C4C6A1D9F0CD600F0BC6C /* OpenTweet */ = {
 			isa = PBXGroup;
 			children = (
+				2536614725EAAB9400DB49B6 /* Extensions */,
 				2536613C25EAA0A100DB49B6 /* Views */,
 				2536613625EA9AEA00DB49B6 /* Models */,
 				2536612D25EA99F800DB49B6 /* Services */,
@@ -172,6 +177,15 @@
 				2536613E25EAA0D700DB49B6 /* TweetTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2536614725EAAB9400DB49B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2536614825EAABAF00DB49B6 /* UIImageView+Extension.swift */,
+				2536615025EAAFD600DB49B6 /* DateFormatter+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,8 +327,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2536614925EAABAF00DB49B6 /* UIImageView+Extension.swift in Sources */,
 				009C4C6E1D9F0CD600F0BC6C /* TimelineViewController.swift in Sources */,
 				009C4C6C1D9F0CD600F0BC6C /* AppDelegate.swift in Sources */,
+				2536615125EAAFD600DB49B6 /* DateFormatter+Extension.swift in Sources */,
 				2536612F25EA9A0B00DB49B6 /* TwitterService.swift in Sources */,
 				2536613F25EAA0D700DB49B6 /* TweetTableViewCell.swift in Sources */,
 				2536613825EA9AFF00DB49B6 /* Tweet.swift in Sources */,

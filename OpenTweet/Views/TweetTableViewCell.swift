@@ -9,22 +9,24 @@
 import UIKit
 
 class TweetTableViewCell: UITableViewCell {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let height = avatarImage.frame.height
+        avatarImage.layer.cornerRadius = height / 2
+    }
 
     func configure(tweet: Tweet) {
         authorLabel.text = tweet.author
         contentLabel.text = tweet.content
-        dateLabel.text = dateFormatter.string(from: tweet.date)
+        dateLabel.text = DateFormatter.yearMonthDayTimeString(from: tweet.date)
+        
+        avatarImage.downloadImage(urlString: tweet.avatar, fallbackSymbol: "person.circle.fill")
     }
     
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/YY HH:mm"
-    
-        return formatter
-    }()
 }
